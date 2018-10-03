@@ -37,4 +37,24 @@ Reads turnstile counter data from New York City MTA web site for weeks ending on
 * Identifies top ten stations by average weekly entry volume that represent 22% of total weekly subway volume over this period.
 
 **02-import_foursquare_data.ipynb**
-* Reads comma delimited text file taken from foursquare API that provides 2014 check in data (most recent available).
+**Note** Data file is in the "Notebooks" folder ('foursquare_2014_NYC.csv')
+* Reads comma delimited text file taken from foursquare API that provides 2014 check in data (most recent available) into a Pandas dataframe.
+* Selects "points of interest" for women from foursquare location categories into a dataframe.
+* Stores points of interest dataframe in a pickle file.
+
+**03-distance_calcualtions_v2**
+* Selects unique points of interest locations from points of interest (poi) dataframe.
+* Enters station locations (latitude and longitude from Google maps) for top ten stations into a dataframe.
+* Merges station location data frame and poi location dataframe into a new dataframe, calculates the distance between them, and adds these values to a new column.
+* Selects rows where the distance is less than 1 mile.
+* Stores dataframe for station, point of interest pairs with distance between them of less than one mile in a pickle file.
+
+**04-combined_weighting_calculations**
+* Counts rows (count of number of points of interest) for each station in dataframe for station, point of interest pairs with distance between them of less than one mile (nearby).
+* Calculates a points of interest weight "poi_share" for each of the top ten stations by dividing the count of nearby points of interest for each station by the total count of nearby points of interest for all top ten stations.
+* Calculates a station entries weight ("entries_share") by dividing the station entries for each top ten station by the total entries for all top ten stations.
+* Calculates a station priority by averaging the "poi_share" and "entries_share" for each of the top ten stations.
+* Stores dataframe with station priorities, station entries, nearby poi count,  entries_share and poi_share for each station in a pickle file.
+
+**05-MTA_Data_Visualizations**
+* Makes Seaborn bar plots of Average Weekly Entries per station for the top ten stations, and % of Weekly Entries for all stations to be used in the presentation.
