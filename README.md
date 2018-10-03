@@ -10,6 +10,9 @@ We have been asked by WomenTechWomenYes (WTWY), a nonprofit organization promoti
 ### Analysis Approach
 We will determine which MTA stations have the most entry volume from the turnstile data available from the MTA website.  We will combine data for foursquare checkins (available from foursquare API) from  New York City businesses of interest to women with station entry volume to prioritize stations for focus by WTWY.
 
+### Conclusion
+See presentation slides in the Presentation folder.
+
 ### MTA Data File Description
 * Provides counter outputs for consecutive dates and times during a week for entries ('ENTRIES') and exits ('EXITS'), and the date ('DATE') and time ('TIME') for when the counts are provided, from MTA subway station turnstiles.
 * Provides station name ('STATION') and three identifier codes ('C/A', 'UNIT', 'SCP') that can be combined to identify a unique turnstile.
